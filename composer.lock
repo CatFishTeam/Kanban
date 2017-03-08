@@ -2465,65 +2465,6 @@
             "time": "2015-05-11 14:41:42"
         },
         {
-            "name": "krlove/code-generator",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/krlove/code-generator.git",
-                "reference": "c1f0cb6898c5e378528c095d54623171e62ee1c3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/krlove/code-generator/zipball/c1f0cb6898c5e378528c095d54623171e62ee1c3",
-                "reference": "c1f0cb6898c5e378528c095d54623171e62ee1c3",
-                "shasum": ""
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Krlove\\CodeGenerator\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Code Generator",
-            "time": "2016-04-03 14:09:31"
-        },
-        {
-            "name": "krlove/eloquent-model-generator",
-            "version": "1.2.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/krlove/eloquent-model-generator.git",
-                "reference": "eac17d4427b7f3833ef1d6c929a1f7810b8e3db2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/krlove/eloquent-model-generator/zipball/eac17d4427b7f3833ef1d6c929a1f7810b8e3db2",
-                "reference": "eac17d4427b7f3833ef1d6c929a1f7810b8e3db2",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/dbal": "^2.5",
-                "krlove/code-generator": "^1.0",
-                "laravel/framework": "^5.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Krlove\\EloquentModelGenerator\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "Eloquent Model Generator",
-            "time": "2016-11-20 21:29:42"
-        },
-        {
             "name": "mockery/mockery",
             "version": "0.9.9",
             "source": {
