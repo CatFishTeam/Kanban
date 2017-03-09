@@ -12,6 +12,8 @@
             </div>
         </div>
     </div>
+    {!! Form::select('size', ['TD' => 'To Do', 'IP' => 'In Progress', 'TR' => 'To Review', 'D' => 'Done'], 'TD'); !!}
+    {!! Form::submit('Cette action sera irréparable en cas d\'échec, votre vie sera en péril.   ' ); !!}
     <section class="kanban">
         <article class="col-md-3 col-sm-6 col-xs-12" style="background-color: #8c8c8c; color:white; text-align: center; height: 100vh;">
             <h2>
