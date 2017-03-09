@@ -26,10 +26,10 @@ class Kanban extends Eloquent
 	];
 
     /**
-     * Get the user that owns the comment.
+     * The users that belong to the kanban.
      */
-    public function user()
+    public function users()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsToMany('App\User');
     }
 }
