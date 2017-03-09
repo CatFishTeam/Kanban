@@ -26,4 +26,13 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * Get the kanbans record associated with the user.
+     */
+    public function kanbans()
+    {
+        return $this->hasMany('App\Models\Kanban');
+    }
+
 }

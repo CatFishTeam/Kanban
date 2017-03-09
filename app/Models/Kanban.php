@@ -24,4 +24,12 @@ class Kanban extends Eloquent
 	protected $fillable = [
 		'title'
 	];
+
+    /**
+     * Get the user that owns the comment.
+     */
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }
