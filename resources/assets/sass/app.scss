@@ -8,10 +8,17 @@
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
+a:hover{
+  text-decoration: none;
+}
+
 .project{
   border: 2px solid;
   padding: 5px;
   margin: 5px 0;
+  &:hover {
+    transform: scale(1.1);
+  }
   h3{
     margin: 0;
   }

@@ -9,10 +9,12 @@
             <div class="col-xs-12 col-sm-4">
                 <h2>Mes Projets</h2>
                 @foreach($kanbans as $kanban)
-                    <div class="project">
-                        <h3>{{$kanban->title}}</h3>
-                        <p>{{str_limit($kanban->description, 150)}}</p>
-                    </div>
+                    <a href="/kanban/{{$kanban->id}}">
+                        <div class="project">
+                            <h3>{{$kanban->title}}</h3>
+                            <p>{{str_limit($kanban->description, 150)}}</p>
+                        </div>
+                    </a>
                 @endforeach
                 <!-- Button trigger modal -->
                 <br>
@@ -23,7 +25,7 @@
                 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
-                            {!! Form::open(['url' => '/home']) !!}
+                            {!! Form::open(['url' => '/addKanban']) !!}
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                 <h4 class="modal-title" id="myModalLabel">Entrez les informations de votre projet</h4>
