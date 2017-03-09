@@ -1,17 +1,20 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
-
-                <div class="panel-body">
-                    You are logged in!
-                </div>
+    <div class="container">
+        <dvi class="row">
+            <div class="col-xs-12 col-sm-8">
+                <h2>Tâches en cours</h2>
+                @foreach($tasks as $task)
+                    {{$task}}
+                @endforeach
             </div>
-        </div>
+            <div class="col-xs-12 col-sm-4">
+                <h2>Mes Kanban</h2>
+                @foreach($kanbans as $kanban)
+                    {{$kanban}}
+                @endforeach
+            </div>
+        </dvi>
     </div>
-</div>
 @endsection

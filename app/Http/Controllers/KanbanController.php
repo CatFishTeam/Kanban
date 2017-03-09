@@ -16,16 +16,16 @@ class KanbanController extends Controller
         $this->middleware('auth');
     }
 
-    function home()
+    function index()
     {
         $task = ['yolo','swag'];
         $kanbans = ['test','swag'];
-        return view('kanban')
+        return view('home')
             ->withTasks($task)
             ->withKanbans($kanbans);
     }
 
-    function index()
+    function kanban()
     {
         return view('kanban');
     }
