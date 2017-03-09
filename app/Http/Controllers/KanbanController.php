@@ -25,27 +25,22 @@ class KanbanController extends Controller
         //Actual user
         $user = User::find(Auth::id());
 
-        dd($user->kanbans);
-
-        foreach ($user->kanbans as $kanban) {
-            $kanbans = $kanban;
-        }
-
         $tasksInGoing = Task::where('state_id','=','2')->get() ;
         $kanbans = Kanban::orderBy('title')->get();
         return view('home')
             ->withTasksInGoing($tasksInGoing)
-            ->withKanbans($kanbans);
+            ->withKanbans($user->kanbans);
     }
 
     public function addKanban(Request $request)
     {
         $kanban = new Kanban;
-
         $kanban->title = $request->title;
         $kanban->description = $request->description;
-
         $kanban->save();
+
+        $user = User::find(Auth::id());
+        $user->kanbans()->attach($kanban->id);
 
         //Session::flash('alert-succes', 'Post saved successfully');
 

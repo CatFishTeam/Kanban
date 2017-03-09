@@ -14,8 +14,8 @@ class CreateKanbanUserTable extends Migration
     public function up()
     {
         Schema::create('kanban_user', function (Blueprint $table) {
-            $table->integer('state_id');
-            $table->integer('state_id');
+            $table->integer('kanban_id');
+            $table->integer('user_id');
         });
 
     }
