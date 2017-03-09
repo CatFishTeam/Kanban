@@ -19,4 +19,5 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('/kanban/{id?}', 'KanbanController@index');
+Route::get('/kanban/',     'KanbanController@home');
+Route::get('/kanban/{id}', 'KanbanController@index');

@@ -14,13 +14,12 @@
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
 
     <!-- Scripts -->
-
     <script>
         window.Laravel = {!! json_encode([
             'csrfToken' => csrf_token(),
         ]) !!};
     </script>
-
+    <script src="{{ mix('/js/app.js') }}"></script>
 </head>
 <body>
     <div id="app">
@@ -82,8 +81,5 @@
 
         @yield('content')
     </div>
-
-    <!-- Scripts -->
-    <script src="{{ mix('/js/app.js') }}"></script>
 </body>
 </html>

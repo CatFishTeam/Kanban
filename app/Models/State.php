@@ -10,20 +10,18 @@ namespace App\Models;
 use Reliese\Database\Eloquent\Model as Eloquent;
 
 /**
- * Class Post
+ * Class State
  * 
  * @property int $id
  * @property string $title
- * @property string $description
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  *
  * @package App\Models
  */
-class Post extends Eloquent
+class State extends Eloquent
 {
 	protected $fillable = [
-		'title',
-		'description'
+		'title'
 	];
 }
