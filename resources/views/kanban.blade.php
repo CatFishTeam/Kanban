@@ -1,44 +1,80 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container" xmlns="http://www.w3.org/1999/html">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">
+                    <div class="panel-heading" style="text-align: center">
                         Kanbans
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    {!! Form::select('size', ['TD' => 'To Do', 'IP' => 'In Progress', 'TR' => 'To Review', 'D' => 'Done'], 'TD'); !!}
-    {!! Form::submit('Cette action sera irréparable en cas d\'échec, votre vie sera en péril.   ' ); !!}
     <section class="kanban">
-        <article class="col-md-3 col-sm-6 col-xs-12" style="background-color: #8c8c8c; color:white; text-align: center; height: 100vh;">
+        <article class="col-md-3 col-sm-6 col-xs-12" style="background-color: #888c89; color:white; text-align: center; height: 100vh;">
             <h2>
                 To Do
             </h2>
+            <a href="" ><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
             <hr>
         </article>
-        <article class="col-md-3 col-sm-6 col-xs-12" style="background-color: #00b5e2; color:white; text-align: center; height: 100vh;">
+        <article class="col-md-3 col-sm-6 col-xs-12" style="background-color: #5fb4e2; color:white; text-align: center; height: 100vh;">
             <h2>
                 In Progress
             </h2>
+                <a href="" ><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
             <hr>
         </article>
-        <article class="col-md-3 col-sm-6 col-xs-12" style="background-color: #8c3310; color:white; text-align: center; height: 100vh;">
+        <article class="col-md-3 col-sm-6 col-xs-12" style="background-color: #8c4100; color:white; text-align: center; height: 100vh;">
             <h2>
                 To Review
             </h2>
+            <a href="" ><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
             <hr>
         </article>
-        <article class="col-md-3 col-sm-6 col-xs-12" style="background-color: #408140; color:white; text-align: center; height: 100vh;">
+        <article class="col-md-3 col-sm-6 col-xs-12" style="background-color: #49811e; color:white; text-align: center; height: 100vh;">
             <h2>
                 Done
             </h2>
+            <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+            </button>
             <hr>
         </article>
     </section>
 @endsection
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            {!! Form::open(['url' => 'kanban/'.Request::segment(2).'/add']) !!}
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Entrez les informations de votre tâche</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="title-name" class="control-label">Nom de la tache :</label>
+                    <input type="text" class="form-control" id="title-name" name="title">
+                </div>
+                <div class="form-group">
+                    <label for="description-text" class="control-label">Description :</label>
+                    <textarea class="form-control" id="description-text" name="description"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="description-text" class="control-label">Etat de la tache :</label>
+                    {!! Form::select('state', ['1' => 'To Do', '2' => 'In Progress', '3' => 'To Review', '4' => 'Done'], '1') !!}
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
+            </div>
+            {!! Form::close() !!}
+        </div>
+    </div>
+</div>
+</div>
 
