@@ -16,6 +16,7 @@ class CreateKanbansTable extends Migration
         Schema::create('kanbans', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
+            $table->text('description');
             $table->timestamps();
         });
     }
