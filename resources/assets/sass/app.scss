@@ -7,3 +7,15 @@
 
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+.project{
+  border: 2px solid;
+  padding: 5px;
+  margin: 5px 0;
+  h3{
+    margin: 0;
+  }
+  p{
+    margin: 0;
+  }
+}

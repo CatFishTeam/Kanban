@@ -10,21 +10,23 @@
                 @endforeach
             </div>
             <div class="col-xs-12 col-sm-4">
-                <h2>Mes Kanban</h2>
+                <h2>Mes Projets</h2>
                 @foreach($kanbans as $kanban)
-                    {{$kanban}}
+                    <div class="project">
+                        <h3>{{$kanban->title}}</h3>
+                        <p>{{str_limit($kanban->description, 150)}}</p>
+                    </div>
                 @endforeach
                 <!-- Button trigger modal -->
                 <br>
                 <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal">
                     Ajouter Projet
                 </button>
-
-                <!-- Modal -->
+            <!-- Modal -->
                 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
-                            <form method="post" action="">
+                            {!! Form::open(['url' => '/home']) !!}
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                 <h4 class="modal-title" id="myModalLabel">Entrez les informations de votre projet</h4>
@@ -41,9 +43,9 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                                <button type="button" class="btn btn-primary" type="submit">Save changes</button>
+                                <button type="submit" class="btn btn-primary">Save changes</button>
                             </div>
-                            </form>
+                            {!! Form::close() !!}
                         </div>
                     </div>
                 </div>
