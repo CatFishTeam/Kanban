@@ -38,16 +38,22 @@ class TaskController extends Controller
     {
 
         $task = new task;
-
         $task->title = $request->title;
         $task->description = $request->description;
         $task->state_id = $request->state;
-
         $task->save();
 
 
         //Session::flash('alert-succes', 'Post saved successfully');
 
         return redirect($request->path());
+    }
+
+    public function addUserToKanban(Request $request)
+    {
+        $user = User::find($request->id);
+        $user->kanbans()->attach($request->kabanId);
+
+        return json_encode('Le membre à bien été invité à votre kanban');
     }
 }

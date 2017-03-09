@@ -48,8 +48,12 @@ class KanbanController extends Controller
     }
 
 
-    function kanban()
+    function kanban($id)
     {
-        return view('kanban');
+        $users = User::all();
+        $kanban = Kanban::find($id);
+        return view('kanban')
+            ->withUsers($users)
+            ->withKanban($kanban);
     }
 }

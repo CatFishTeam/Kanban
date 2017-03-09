@@ -5,10 +5,14 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
+                    <input type="hidden" class="kanbanId" data-id="{{$kanban->id}}">
                     <div class="panel-heading" style="text-align: center">
-                        Kanbans
+                        {{$kanban->title}}
                     </div>
                 </div>
+            </div>
+            <div class="col-md-2">
+                <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#addUser">Inviter des gens</button>
             </div>
         </div>
     </div>
@@ -76,5 +80,18 @@
         </div>
     </div>
 </div>
-</div>
 
+<div class="modal fade" id="addUser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Liste des autres utilisateurs :</h4>
+            </div>
+            <div class="modal-body">
+                @foreach($users as $user)
+                    <div class="user" data-id="{{$user->id}}">{{$user->name}}</div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+</div>

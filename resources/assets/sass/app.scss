@@ -26,3 +26,15 @@ a:hover{
     margin: 0;
   }
 }
+
+.user {
+  background-color: beige;
+  padding: 2px;
+  border: 1px solid;
+  border-radius: 10px;
+  margin: 2px;
+  cursor: pointer;
+  &:hover{
+    transform: scale(1.01);
+  }
+}

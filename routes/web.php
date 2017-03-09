@@ -23,3 +23,5 @@ Route::post('/home','KanbanController@addKanban');
 
 Route::get('/kanban/{id}', 'KanbanController@kanban');
 Route::post('/kanban/{id}/add','TaskController@addTask');
+Route::post('/addUserToKanban','TaskController@addUserToKanban');
+
