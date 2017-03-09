@@ -18,7 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home','KanbanController@index');
-Route::post('/home','KanbanController@addKanban');
+Route::post('/addKanban','KanbanController@addKanban');
 
 
 Route::get('/kanban/{id}', 'KanbanController@kanban');
