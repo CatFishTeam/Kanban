@@ -35,4 +35,11 @@ class User extends Authenticatable
         return $this->hasMany('App\Models\Kanban');
     }
 
+    /**
+     * Get the tasks record associated with the user.
+     */
+    public function tasks()
+    {
+        return $this->hasMany('App\Models\Task');
+    }
 }

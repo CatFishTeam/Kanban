@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Kanban;
+use App\Models\Task;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 
@@ -19,10 +20,10 @@ class KanbanController extends Controller
 
     function index()
     {
-        $task = ['yolo','swag'];
+        $tasksInGoing = Task::where('state_id','=','2')->get() ;
         $kanbans = Kanban::orderBy('title')->get();
         return view('home')
-            ->withTasks($task)
+            ->withTasksInGoing($tasksInGoing)
             ->withKanbans($kanbans);
     }
 
