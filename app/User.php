@@ -28,11 +28,11 @@ class User extends Authenticatable
     ];
 
     /**
-     * Get the kanbans record associated with the user.
+     * The kanbans that belong to the user.
      */
     public function kanbans()
     {
-        return $this->hasMany('App\Models\Kanban');
+        return $this->belongsToMany('App\Models\Kanban');
     }
 
     /**

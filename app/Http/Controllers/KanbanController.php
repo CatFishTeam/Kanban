@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 use App\Models\Kanban;
 use App\Models\Task;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 
 class KanbanController extends Controller
@@ -20,6 +22,15 @@ class KanbanController extends Controller
 
     function index()
     {
+        //Actual user
+        $user = User::find(Auth::id());
+
+        dd($user->kanbans);
+
+        foreach ($user->kanbans as $kanban) {
+            $kanbans = $kanban;
+        }
+
         $tasksInGoing = Task::where('state_id','=','2')->get() ;
         $kanbans = Kanban::orderBy('title')->get();
         return view('home')
