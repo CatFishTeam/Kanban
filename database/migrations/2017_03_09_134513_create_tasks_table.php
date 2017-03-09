@@ -17,6 +17,7 @@ class CreateTasksTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->integer('state_id');
+            $table->integer('kanban_id');
             $table->text('description');
             $table->timestamps();
         });

@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Kanban;
 use App\Models\Task;
-use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class TaskController extends Controller
 {
@@ -19,34 +17,22 @@ class TaskController extends Controller
         $this->middleware('auth');
     }
 
-    public function addKanban(Request $request)
-    {
-        $kanban = new Kanban;
-        $kanban->title = $request->title;
-        $kanban->description = $request->description;
-        $kanban->save();
-
-        $user = User::find(Auth::id());
-        $user->kanbans()->attach($kanban->id);
-
-        //Session::flash('alert-succes', 'Post saved successfully');
-
-        return redirect('/');
-    }
-
     public function addTask(Request $request)
     {
 
+        $path = $request->path();
+        $path = str_replace("/add", "", $path);
+        $kanbanId = str_replace("kanban/","",$path);
         $task = new task;
         $task->title = $request->title;
         $task->description = $request->description;
         $task->state_id = $request->state;
+        $task->kanban_id = $kanbanId;
         $task->save();
-
 
         //Session::flash('alert-succes', 'Post saved successfully');
 
-        return redirect($request->path());
+        return redirect($path);
     }
 
     public function addUserToKanban(Request $request)
