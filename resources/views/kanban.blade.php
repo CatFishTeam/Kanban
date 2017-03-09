@@ -17,21 +17,27 @@
             <h2>
                 To Do
             </h2>
-            <a href="" ><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
+            <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+            </button>
             <hr>
         </article>
         <article class="col-md-3 col-sm-6 col-xs-12" style="background-color: #5fb4e2; color:white; text-align: center; height: 100vh;">
             <h2>
                 In Progress
             </h2>
-                <a href="" ><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
+            <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+            </button>
             <hr>
         </article>
         <article class="col-md-3 col-sm-6 col-xs-12" style="background-color: #8c4100; color:white; text-align: center; height: 100vh;">
             <h2>
                 To Review
             </h2>
-            <a href="" ><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
+            <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+            </button>
             <hr>
         </article>
         <article class="col-md-3 col-sm-6 col-xs-12" style="background-color: #49811e; color:white; text-align: center; height: 100vh;">
