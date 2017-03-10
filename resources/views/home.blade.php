@@ -10,7 +10,7 @@
                         <div class="tasksToDo">
                             <h4>Projet :  {{$task->kanban->title}}</h4>
                             <hr>
-                            <h3>{{$task->title}} </h3>
+                            <h3>{{$task->title}}</h3>
                             <p>{{$task->description}}</p>
                         </div>
                     </a>

@@ -1,1 +1,1 @@
-Bienvenue
+Vous êtes invité par {{ $user->name }} à rejoindre le projet {{$kanban->title}} sur <a href="google.com">kaban.com</a>
