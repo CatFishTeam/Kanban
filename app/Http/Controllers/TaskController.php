@@ -5,6 +5,7 @@ use App\Models\Kanban;
 use App\Models\Task;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class TaskController extends Controller
 {
@@ -38,10 +39,14 @@ class TaskController extends Controller
 
     public function addUserToKanban(Request $request)
     {
-        $user = User::find($request->id);
+        $user = User::findOrFail($request->id);
         $kanban = Kanban::find($request->kanbanId);
-
         $user->kanbans()->save($kanban);
+
+        Mail::send('emails.subscribe', ['user' => $user], function ($m) use ($user) {
+            $m->from('hello@app.com', 'Your Application');
+            $m->to($user->email, $user->name)->subject('Vous avez été invité à rejoindre une team Kanban !');
+        });
 
         return json_encode('Le membre à bien été invité à votre kanban');
     }
