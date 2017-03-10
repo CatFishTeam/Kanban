@@ -52,8 +52,17 @@ class KanbanController extends Controller
     {
         $users = User::all();
         $kanban = Kanban::find($id);
+        $tasks = $this->getTasks($id,1);
+
         return view('kanban')
             ->withUsers($users)
-            ->withKanban($kanban);
+            ->withKanban($kanban)
+            ->withTasks($tasks);
     }
+
+    function getTasks($id){
+        $tasks = Task::where('kanban_id', $id)->get();
+        return $tasks;
+    }
+
 }

@@ -24,12 +24,23 @@ class TaskController extends Controller
         $path = $request->path();
         $path = str_replace("/add", "", $path);
         $kanbanId = str_replace("kanban/","",$path);
-        $task = new task;
-        $task->title = $request->title;
-        $task->description = $request->description;
-        $task->state_id = $request->state;
-        $task->kanban_id = $kanbanId;
-        $task->save();
+
+        if(isset($request->id)){
+            Task::where('id', $request->id)
+                ->update([
+                    'title'       =>$request->title,
+                    'description' =>$request->description,
+                    'state_id'    =>$request->state
+                ]);
+        }
+        else {
+            $task = new task;
+            $task->title = $request->title;
+            $task->description = $request->description;
+            $task->state_id = $request->state;
+            $task->kanban_id = $kanbanId;
+            $task->save();
+        }
 
         //Session::flash('alert-succes', 'Post saved successfully');
 
