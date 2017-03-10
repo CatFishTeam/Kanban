@@ -6,6 +6,7 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
                     <input type="hidden" class="kanbanId" data-id="{{$kanban->id}}">
+
                     <div class="panel-heading" style="text-align: center">
                         {{$kanban->title}}
                     </div>
@@ -25,6 +26,20 @@
                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
             </button>
             <hr>
+            @foreach($tasks as $task)
+                @if($task->state_id === 1)
+                    <div class="task">
+                        <h3>{{ $task->title }}</h3>
+                        <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal{{ $task->id }}">
+                            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                        </button>
+                        <hr>
+                        <p class="task_description">
+                            {{ $task->description }}
+                        </p>
+                    </div>
+                @endif
+            @endforeach
         </article>
         <article class="col-md-3 col-sm-6 col-xs-12" style="background-color: #5fb4e2; color:white; text-align: center; height: 100vh;">
             <h2>
@@ -34,6 +49,20 @@
                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
             </button>
             <hr>
+            @foreach($tasks as $task)
+                @if($task->state_id === 2)
+                    <div class="task">
+                        <h3>{{ $task->title }}</h3>
+                        <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal{{ $task->id }}">
+                            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                        </button>
+                        <hr>
+                        <p class="task_description">
+                            {{ $task->description }}
+                        </p>
+                    </div>
+                @endif
+            @endforeach
         </article>
         <article class="col-md-3 col-sm-6 col-xs-12" style="background-color: #8c4100; color:white; text-align: center; height: 100vh;">
             <h2>
@@ -43,6 +72,20 @@
                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
             </button>
             <hr>
+            @foreach($tasks as $task)
+                @if($task->state_id === 3)
+                    <div class="task">
+                        <h3>{{ $task->title }}</h3>
+                        <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal{{ $task->id }}">
+                            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                        </button>
+                        <hr>
+                        <p class="task_description">
+                            {{ $task->description }}
+                        </p>
+                    </div>
+                @endif
+            @endforeach
         </article>
         <article class="col-md-3 col-sm-6 col-xs-12" style="background-color: #49811e; color:white; text-align: center; height: 100vh;">
             <h2>
@@ -52,6 +95,20 @@
                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
             </button>
             <hr>
+            @foreach($tasks as $task)
+                @if($task->state_id === 4)
+                    <div class="task">
+                        <h3>{{ $task->title }}</h3>
+                        <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal{{ $task->id }}">
+                            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                        </button>
+                        <hr>
+                        <p class="task_description">
+                            {{ $task->description }}
+                        </p>
+                    </div>
+                @endif
+            @endforeach
         </article>
     </section>
 @endsection
@@ -101,3 +158,40 @@
         </div>
     </div>
 </div>
+
+
+@foreach($tasks as $task)
+
+    <div class="modal fade" id="myModal{{ $task->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                {!! Form::open(['url' => 'kanban/'.Request::segment(2).'/add']) !!}
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Entrez les informations de votre tâche</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="title-name" class="control-label">Nom de la tache :</label>
+                        <input type="text" class="form-control" id="title-name" name="title" value="{{ $task->title }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="description-text" class="control-label">Description :</label>
+                        <textarea class="form-control" id="description-text" name="description">{{ $task->description }}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="description-text" class="control-label">Etat de la tache :</label>
+                        {!! Form::select('state', ['1' => 'To Do', '2' => 'In Progress', '3' => 'To Review', '4' => 'Done'], $task->state_id) !!}
+                    </div>
+                    <input type="hidden" name="id" value="{{ $task->id }}">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+                {!! Form::close() !!}
+            </div>
+        </div>
+    </div>
+
+@endforeach

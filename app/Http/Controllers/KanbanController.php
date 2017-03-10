@@ -47,6 +47,8 @@ class KanbanController extends Controller
     public function showKanban($id)
     {
         $kanban = Kanban::find($id);
+
+        $tasks = $this->getTasks($id,1);
         $users = User::all();
         $usersNotIn;
         foreach ($users as $user){
@@ -58,8 +60,16 @@ class KanbanController extends Controller
         }
 
 
+
         return view('kanban')
             ->withUsers($users)
-            ->withKanban($kanban);
+            ->withKanban($kanban)
+            ->withTasks($tasks);
     }
+
+    function getTasks($id){
+        $tasks = Task::where('kanban_id', $id)->get();
+        return $tasks;
+    }
+
 }
