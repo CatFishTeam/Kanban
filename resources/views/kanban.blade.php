@@ -22,7 +22,7 @@
             <h2>
                 To Do
             </h2>
-            <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal" style="margin-bottom: 10px;">
+            <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal1" style="margin-bottom: 10px;">
                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
             </button>
             <hr>
@@ -42,7 +42,7 @@
             <h2>
                 In Progress
             </h2>
-            <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal" style="margin-bottom: 10px;">
+            <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal2" style="margin-bottom: 10px;">
                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
             </button>
             <hr>
@@ -62,7 +62,7 @@
             <h2>
                 To Review
             </h2>
-            <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal" style="margin-bottom: 10px;">
+            <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal3" style="margin-bottom: 10px;">
                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
             </button>
             <hr>
@@ -82,7 +82,7 @@
             <h2>
                 Done
             </h2>
-            <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal" style="margin-bottom: 10px;">
+            <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal4" style="margin-bottom: 10px;">
                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
             </button>
             <hr>
@@ -101,45 +101,48 @@
     </section>
 @endsection
 
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            {!! Form::open(['url' => 'kanban/'.Request::segment(2).'/add']) !!}
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Entrez les informations de votre tâche</h4>
+@for ($i = 1; $i < 5; $i++)
+    {{ var_dump($i) }}
+    <div class="modal fade" id="myModal{{ $i }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                {!! Form::open(['url' => 'kanban/'.Request::segment(2).'/add']) !!}
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Entrez les informations de votre tâche</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="title-name" class="control-label">Nom de la tache :</label>
+                        <input type="text" class="form-control" id="title-name" name="title">
+                    </div>
+                    <div class="form-group">
+                        <label for="description-text" class="control-label">Description :</label>
+                        <textarea class="form-control" id="description-text" name="description"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="description-text" class="control-label">Etat de la tache :</label>
+                        {!! Form::select('state', ['1' => 'To Do', '2' => 'In Progress', '3' => 'To Review', '4' => 'Done'], $i) !!}
+                    </div>
+                    <div class="form-group">
+                        <label for="description-text" class="control-label">Qui s'en charge :</label>
+                        <select name="userId">
+                            <option value="">À définir</option>
+                            @foreach($usersIn as $user)
+                                <option value="{{$user->id}}">{{$user->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+                {!! Form::close() !!}
             </div>
-            <div class="modal-body">
-                <div class="form-group">
-                    <label for="title-name" class="control-label">Nom de la tache :</label>
-                    <input type="text" class="form-control" id="title-name" name="title">
-                </div>
-                <div class="form-group">
-                    <label for="description-text" class="control-label">Description :</label>
-                    <textarea class="form-control" id="description-text" name="description"></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="description-text" class="control-label">Etat de la tache :</label>
-                    {!! Form::select('state', ['1' => 'To Do', '2' => 'In Progress', '3' => 'To Review', '4' => 'Done'], '1') !!}
-                </div>
-                <div class="form-group">
-                    <label for="description-text" class="control-label">Qui s'en charge :</label>
-                    <select name="userId">
-                        <option value="">À définir</option>
-                        @foreach($usersIn as $user)
-                            <option value="{{$user->id}}">{{$user->name}}</option>
-                        @endforeach
-                    </select>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                <button type="submit" class="btn btn-primary">Save changes</button>
-            </div>
-            {!! Form::close() !!}
         </div>
     </div>
-</div>
+@endfor
 
 <div class="modal fade" id="addUser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog modal-sm" role="document">
