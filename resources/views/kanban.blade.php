@@ -194,7 +194,7 @@
                     <div class="form-group">
                         <label for="description-text" class="control-label">Qui s'en charge :</label>
                         <select name="userId">
-                            <option>À définir</option>
+                            <option value="">À définir</option>
                             @foreach($usersIn as $user)
                                 <option value="{{$user->id}}" @if($task->user_id == $user->id) selected @endif>{{$user->name}}</option>
                             @endforeach
