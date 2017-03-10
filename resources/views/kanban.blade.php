@@ -138,7 +138,7 @@
                     <label for="description-text" class="control-label">Qui s'en charge :</label>
                     <select>
                         <option>À définir</option>
-                        @foreach($users as $user)
+                        @foreach($usersIn as $user)
                             <option value="{{$user->id}}">{{$user->name}}</option>
                         @endforeach
                     </select>
@@ -195,7 +195,7 @@
                         <label for="description-text" class="control-label">Qui s'en charge :</label>
                         <select name="userAssign">
                             <option>À définir</option>
-                            @foreach($users as $user)
+                            @foreach($usersIn as $user)
                                 <option value="{{$user->id}}">{{$user->name}}</option>
                             @endforeach
                         </select>

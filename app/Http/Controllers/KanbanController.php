@@ -61,11 +61,10 @@ class KanbanController extends Controller
             }
         }
         $usersNotIn = $users->diff($usersIn);
-        $thoseUsers = $kanban->users;
 
         return view('kanban')
             ->with('usersNotIn',$usersNotIn)
-            ->withThosesUsers($thoseUsers)
+            ->with('usersIn',$usersIn)
             ->withUsers($users)
             ->withKanban($kanban)
             ->withTasks($tasks);

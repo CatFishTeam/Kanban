@@ -56,10 +56,10 @@ class TaskController extends Controller
         $kanban = Kanban::find($request->kanbanId);
         $user->kanbans()->save($kanban);
 
-        Mail::send('emails.subscribe', ['user' => $user], function ($m) use ($user) {
+        /* Mail::send('emails.subscribe', ['user' => $user], function ($m) use ($user) {
             $m->from('hello@app.com', 'Your Application');
             $m->to($user->email, $user->name)->subject('Vous avez été invité à rejoindre une team Kanban !');
-        });
+        }); */
 
         return json_encode('Le membre à bien été invité à votre kanban');
     }
