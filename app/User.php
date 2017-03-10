@@ -36,10 +36,10 @@ class User extends Authenticatable
     }
 
     /**
-     * Get the tasks record associated with the user.
+     * Get the tasks for the blog post.
      */
     public function tasks()
     {
-        return $this->belongsToMany('App\Models\Task');
+        return $this->hasMany('App\Models\Task');
     }
 }

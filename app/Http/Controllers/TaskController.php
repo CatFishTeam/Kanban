@@ -31,7 +31,8 @@ class TaskController extends Controller
                 ->update([
                     'title'       =>$request->title,
                     'description' =>$request->description,
-                    'state_id'    =>$request->state
+                    'state_id'    =>$request->state,
+                    'user_id'     =>$request->userId
                 ]);
         }
         else {
@@ -40,8 +41,8 @@ class TaskController extends Controller
             $task->description = $request->description;
             $task->state_id = $request->state;
             $task->kanban_id = $kanbanId;
+            $task->user_id = $request->userId;
             $task->save();
-            $task->users()->attach($request->userAssign);
         }
 
 

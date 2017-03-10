@@ -23,10 +23,10 @@ class KanbanController extends Controller
     function index()
     {
         $user = User::find(Auth::id());
-        $tasksInGoing = Task::where('state_id','=','2')->get() ;
+        $tasksInGoing = User::find(Auth::id())->tasks->where('state_id','!=','4');
 
         return view('home')
-            ->withTasksInGoing($tasksInGoing)
+            ->with('tasksInGoing',$tasksInGoing)
             ->withKanbans($user->kanbans);
     }
 
@@ -47,7 +47,6 @@ class KanbanController extends Controller
     public function showKanban($id)
     {
         $kanban = Kanban::find($id);
-
         $tasks = $this->getTasks($id,1);
         $users = User::all();
         $usersIn = array();
