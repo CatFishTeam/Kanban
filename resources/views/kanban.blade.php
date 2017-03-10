@@ -21,7 +21,7 @@
             <h2>
                 To Do
             </h2>
-            <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal1" style="margin-bottom: 10px;">
+            <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModalCreation1" style="margin-bottom: 10px;">
                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
             </button>
             <hr>
@@ -41,7 +41,7 @@
             <h2>
                 In Progress
             </h2>
-            <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal2" style="margin-bottom: 10px;">
+            <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModalCreation2" style="margin-bottom: 10px;">
                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
             </button>
             <hr>
@@ -61,7 +61,7 @@
             <h2>
                 To Review
             </h2>
-            <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal3" style="margin-bottom: 10px;">
+            <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModalCreation3" style="margin-bottom: 10px;">
                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
             </button>
             <hr>
@@ -81,7 +81,7 @@
             <h2>
                 Done
             </h2>
-            <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal4" style="margin-bottom: 10px;">
+            <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModalCreation4" style="margin-bottom: 10px;">
                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
             </button>
             <hr>
@@ -102,7 +102,7 @@
 
 @for ($i = 1; $i < 5; $i++)
     {{ var_dump($i) }}
-    <div class="modal fade" id="myModal{{ $i }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal fade" id="myModalCreation{{ $i }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 {!! Form::open(['url' => 'kanban/'.Request::segment(2).'/add']) !!}
