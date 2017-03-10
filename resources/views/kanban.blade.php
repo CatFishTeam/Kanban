@@ -183,7 +183,7 @@
                         <label for="description-text" class="control-label">Etat de la tache :</label>
                         {!! Form::select('state', ['1' => 'To Do', '2' => 'In Progress', '3' => 'To Review', '4' => 'Done'], $task->state_id) !!}
                     </div>
-                    <input type="hidden" name="id" value="{{ $task->id }}">
+                    <input type="hidden" name="task_id" value="{{ $task->id }}">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>

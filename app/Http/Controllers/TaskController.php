@@ -25,9 +25,8 @@ class TaskController extends Controller
         $path = $request->path();
         $path = str_replace("/add", "", $path);
         $kanbanId = str_replace("kanban/","",$path);
-
-        if(isset($request->id)){
-            Task::where('id', $request->id)
+        if(!is_null($request->task_id) && isset($request->task_id)){
+            Task::where('id', $request->task_id)
                 ->update([
                     'title'       =>$request->title,
                     'description' =>$request->description,
