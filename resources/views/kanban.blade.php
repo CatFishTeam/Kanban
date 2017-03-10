@@ -32,7 +32,7 @@
                         <h3>{{ $task->title }}</h3>
                         <hr>
                         <p class="task_description">
-                            {{ $task->description }}
+                            {{ str_limit($task->description,150) }}
                         </p>
                     </div>
                 @endif

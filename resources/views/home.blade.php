@@ -8,7 +8,7 @@
                 @foreach($tasksInGoing as $task)
                     <a href="/kanban/{{$task->kanban->id}}">
                         <div class="tasksToDo">
-                            <h4>Projet :  {{$task->kanban->title}}</h4>
+                            <h4>Projet :  {{$task->kanban->title}} <span style="float: right;">{{$task->state->title}}</span></h4>
                             <hr>
                             <h3>{{$task->title}}</h3>
                             <p>{{$task->description}}</p>
