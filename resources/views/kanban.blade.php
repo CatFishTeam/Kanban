@@ -134,6 +134,15 @@
                     <label for="description-text" class="control-label">Etat de la tache :</label>
                     {!! Form::select('state', ['1' => 'To Do', '2' => 'In Progress', '3' => 'To Review', '4' => 'Done'], '1') !!}
                 </div>
+                <div class="form-group">
+                    <label for="description-text" class="control-label">Qui s'en charge :</label>
+                    <select>
+                        <option>À définir</option>
+                        @foreach($users as $user)
+                            <option value="{{$user->id}}">{{$user->name}}</option>
+                        @endforeach
+                    </select>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
@@ -151,7 +160,7 @@
                 <h4 class="modal-title" id="myModalLabel">Liste des autres utilisateurs :</h4>
             </div>
             <div class="modal-body">
-                @foreach($users as $user)
+                @foreach($usersNotIn as $user)
                     <div class="user" data-id="{{$user->id}}">{{$user->name}}</div>
                 @endforeach
             </div>
@@ -161,7 +170,6 @@
 
 
 @foreach($tasks as $task)
-
     <div class="modal fade" id="myModal{{ $task->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -182,6 +190,15 @@
                     <div class="form-group">
                         <label for="description-text" class="control-label">Etat de la tache :</label>
                         {!! Form::select('state', ['1' => 'To Do', '2' => 'In Progress', '3' => 'To Review', '4' => 'Done'], $task->state_id) !!}
+                    </div>
+                    <div class="form-group">
+                        <label for="description-text" class="control-label">Qui s'en charge :</label>
+                        <select name="userAssign">
+                            <option>À définir</option>
+                            @foreach($users as $user)
+                                <option value="{{$user->id}}">{{$user->name}}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <input type="hidden" name="task_id" value="{{ $task->id }}">
                 </div>

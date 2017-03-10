@@ -50,18 +50,22 @@ class KanbanController extends Controller
 
         $tasks = $this->getTasks($id,1);
         $users = User::all();
+        $usersIn = array();
         $usersNotIn;
         foreach ($users as $user){
-            $in = false;
             foreach($kanban->users as $userk){
-                if($userk->id == $user->id){ $in = true; }
+                if($userk->id == $user->id)
+                {
+                    array_push($usersIn,$userk);
+                }
             }
-            if($in == false) echo 'afaire';
         }
-
-
+        $usersNotIn = $users->diff($usersIn);
+        $thoseUsers = $kanban->users;
 
         return view('kanban')
+            ->with('usersNotIn',$usersNotIn)
+            ->withThosesUsers($thoseUsers)
             ->withUsers($users)
             ->withKanban($kanban)
             ->withTasks($tasks);

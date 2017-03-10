@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateKanbanUserTable extends Migration
+class CreateTaskUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class CreateKanbanUserTable extends Migration
      */
     public function up()
     {
-        Schema::create('kanban_user', function (Blueprint $table) {
-            $table->integer('kanban_id');
+        Schema::create('task_user', function (Blueprint $table) {
+            $table->integer('task_id');
             $table->integer('user_id');
         });
     }
@@ -26,6 +26,6 @@ class CreateKanbanUserTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kanban_user');
+        Schema::dropIfExists('task_user');
     }
 }

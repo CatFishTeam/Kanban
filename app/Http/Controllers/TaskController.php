@@ -5,6 +5,7 @@ use App\Models\Kanban;
 use App\Models\Task;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
 class TaskController extends Controller
@@ -40,7 +41,9 @@ class TaskController extends Controller
             $task->state_id = $request->state;
             $task->kanban_id = $kanbanId;
             $task->save();
+            $task->users()->attach($request->userAssign);
         }
+
 
         //Session::flash('alert-succes', 'Post saved successfully');
 

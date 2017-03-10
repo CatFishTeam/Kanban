@@ -36,8 +36,8 @@ class Task extends Eloquent
     /**
      * Get the user that owns the comment.
      */
-    public function user()
+    public function users()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsToMany('App\User');
     }
 }
