@@ -6,8 +6,14 @@
             <div class="col-xs-12 col-sm-8">
                 <h2>Tâches en cours</h2>
                 @foreach($tasksInGoing as $task)
-                    {{$task->title}}
-                    {{$task->description}}
+                    <a href="/kanban/{{$task->kanban->id}}">
+                        <div class="tasksToDo">
+                            <h4>Projet :  {{$task->kanban->title}}</h4>
+                            <hr>
+                            <h3>{{$task->title}} </h3>
+                            <p>{{$task->description}}</p>
+                        </div>
+                    </a>
                 @endforeach
             </div>
             <div class="col-xs-12 col-sm-4">

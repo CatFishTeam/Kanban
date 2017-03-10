@@ -12,19 +12,19 @@ a:hover{
   text-decoration: none;
 }
 
-.project{
+.project, .tasksToDo{
   border: 2px solid;
   padding: 5px;
   margin: 5px 0;
-  &:hover {
-    transform: scale(1.1);
-  }
   h3{
     margin: 0;
   }
   p{
     margin: 0;
   }
+}
+.project:hover{
+    transform: scale(1.1);
 }
 
 .user {

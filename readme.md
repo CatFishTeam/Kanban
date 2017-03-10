@@ -11,3 +11,6 @@
  }
  - Passer height to min-height
  - Ajouter description du projet en hover (par exemple) sur la page kanban
+ - Supprimer Tache
+ - Supprimer kanban
+ - Relation State Task

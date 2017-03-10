@@ -40,4 +40,20 @@ class Task extends Eloquent
     {
         return $this->belongsTo('App\User');
     }
+
+    /**
+     * Get the kanban that owns the phone.
+     */
+    public function kanban()
+    {
+        return $this->belongsTo('App\Models\Kanban');
+    }
+
+    /**
+     * Get the state that owns the phone.
+     */
+    public function state()
+    {
+        return $this->belongsTo('App\Models\State');
+    }
 }
