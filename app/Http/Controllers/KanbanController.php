@@ -22,11 +22,9 @@ class KanbanController extends Controller
 
     function index()
     {
-        //Actual user
         $user = User::find(Auth::id());
-
         $tasksInGoing = Task::where('state_id','=','2')->get() ;
-        $kanbans = Kanban::orderBy('title')->get();
+
         return view('home')
             ->withTasksInGoing($tasksInGoing)
             ->withKanbans($user->kanbans);
@@ -43,16 +41,25 @@ class KanbanController extends Controller
         $user->kanbans()->attach($kanban->id);
 
         //Session::flash('alert-succes', 'Post saved successfully');
-
         return redirect('home');
     }
 
-
-    function kanban($id)
+    public function showKanban($id)
     {
-        $users = User::all();
         $kanban = Kanban::find($id);
+
         $tasks = $this->getTasks($id,1);
+        $users = User::all();
+        $usersNotIn;
+        foreach ($users as $user){
+            $in = false;
+            foreach($kanban->users as $userk){
+                if($userk->id == $user->id){ $in = true; }
+            }
+            if($in == false) echo 'afaire';
+        }
+
+
 
         return view('kanban')
             ->withUsers($users)

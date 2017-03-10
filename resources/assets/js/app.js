@@ -30,3 +30,4 @@ $(document).on('click','.user', function(){
     });
     $(this).fadeOut();
 });
+

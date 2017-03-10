@@ -50,7 +50,9 @@ class TaskController extends Controller
     public function addUserToKanban(Request $request)
     {
         $user = User::find($request->id);
-        $user->kanbans()->attach($request->kabanId);
+        $kanban = Kanban::find($request->kanbanId);
+
+        $user->kanbans()->save($kanban);
 
         return json_encode('Le membre à bien été invité à votre kanban');
     }
