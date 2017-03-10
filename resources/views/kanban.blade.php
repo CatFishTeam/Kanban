@@ -22,17 +22,14 @@
             <h2>
                 To Do
             </h2>
-            <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal">
+            <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal" style="margin-bottom: 10px;">
                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
             </button>
             <hr>
             @foreach($tasks as $task)
                 @if($task->state_id === 1)
-                    <div class="task">
+                    <div class="task" data-toggle="modal" data-target="#myModal{{ $task->id }}">
                         <h3>{{ $task->title }}</h3>
-                        <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal{{ $task->id }}">
-                            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-                        </button>
                         <hr>
                         <p class="task_description">
                             {{ $task->description }}
@@ -45,17 +42,14 @@
             <h2>
                 In Progress
             </h2>
-            <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal">
+            <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal" style="margin-bottom: 10px;">
                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
             </button>
             <hr>
             @foreach($tasks as $task)
                 @if($task->state_id === 2)
-                    <div class="task">
+                    <div class="task" data-toggle="modal" data-target="#myModal{{ $task->id }}">
                         <h3>{{ $task->title }}</h3>
-                        <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal{{ $task->id }}">
-                            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-                        </button>
                         <hr>
                         <p class="task_description">
                             {{ $task->description }}
@@ -68,17 +62,14 @@
             <h2>
                 To Review
             </h2>
-            <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal">
+            <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal" style="margin-bottom: 10px;">
                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
             </button>
             <hr>
             @foreach($tasks as $task)
                 @if($task->state_id === 3)
-                    <div class="task">
+                    <div class="task" data-toggle="modal" data-target="#myModal{{ $task->id }}">
                         <h3>{{ $task->title }}</h3>
-                        <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal{{ $task->id }}">
-                            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-                        </button>
                         <hr>
                         <p class="task_description">
                             {{ $task->description }}
@@ -91,17 +82,14 @@
             <h2>
                 Done
             </h2>
-            <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal">
+            <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal" style="margin-bottom: 10px;">
                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
             </button>
             <hr>
             @foreach($tasks as $task)
                 @if($task->state_id === 4)
-                    <div class="task">
+                    <div class="task" data-toggle="modal" data-target="#myModal{{ $task->id }}">
                         <h3>{{ $task->title }}</h3>
-                        <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal{{ $task->id }}">
-                            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-                        </button>
                         <hr>
                         <p class="task_description">
                             {{ $task->description }}

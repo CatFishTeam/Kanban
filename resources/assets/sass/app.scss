@@ -38,3 +38,22 @@ a:hover{
     transform: scale(1.01);
   }
 }
+
+.task{
+  border: 2px solid;
+  border-radius: 10px;
+  cursor:pointer;
+  margin: 10px 0;
+  &:hover {
+    transform: scale(1.01);
+  }
+  h3{
+    margin-top: 10px;
+  }
+}
+
+hr {
+  margin: 0 !important;
+  border: 0;
+  border-top: 1px solid #eeeeee;
+}

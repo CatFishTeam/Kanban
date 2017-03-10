@@ -2,7 +2,6 @@
 - Comment
 
 ## TO DO
- - Envoi Mail quand ajout liste
  - Clean Connexion
  - Clean Route (If Auth::check() : Laravel -> home ?)
  - Doublon in pivot table
