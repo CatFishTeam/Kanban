@@ -50,10 +50,10 @@ a:hover{
   h3{
     margin-top: 10px;
   }
+  hr {
+    margin: 0 !important;
+    border: 0;
+    border-top: 1px solid #eeeeee;
+  }
 }
 
-hr {
-  margin: 0 !important;
-  border: 0;
-  border-top: 1px solid #eeeeee;
-}
