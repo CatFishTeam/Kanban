@@ -101,7 +101,6 @@
 @endsection
 
 @for ($i = 1; $i < 5; $i++)
-    {{ var_dump($i) }}
     <div class="modal fade" id="myModalCreation{{ $i }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
