@@ -6,7 +6,6 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
                     <input type="hidden" class="kanbanId" data-id="{{$kanban->id}}">
-
                     <div class="panel-heading" style="text-align: center">
                         {{$kanban->title}}
                     </div>
@@ -18,7 +17,7 @@
         </div>
     </div>
     <section class="kanban">
-        <article class="col-md-3 col-sm-6 col-xs-12" style="background-color: #888c89; color:white; text-align: center; height: 100vh;">
+        <article class="col-md-3 col-sm-6 col-xs-12" style="background-color: #888c89; color:white; text-align: center; min-height: 100vh;">
             <h2>
                 To Do
             </h2>
@@ -38,7 +37,7 @@
                 @endif
             @endforeach
         </article>
-        <article class="col-md-3 col-sm-6 col-xs-12" style="background-color: #5fb4e2; color:white; text-align: center; height: 100vh;">
+        <article class="col-md-3 col-sm-6 col-xs-12" style="background-color: #5fb4e2; color:white; text-align: center; min-height: 100vh;">
             <h2>
                 In Progress
             </h2>
@@ -52,13 +51,13 @@
                         <h3>{{ $task->title }}</h3>
                         <hr>
                         <p class="task_description">
-                            {{ $task->description }}
+                            {{ str_limit($task->description,150) }}
                         </p>
                     </div>
                 @endif
             @endforeach
         </article>
-        <article class="col-md-3 col-sm-6 col-xs-12" style="background-color: #8c4100; color:white; text-align: center; height: 100vh;">
+        <article class="col-md-3 col-sm-6 col-xs-12" style="background-color: #8c4100; color:white; text-align: center; min-height: 100vh;">
             <h2>
                 To Review
             </h2>
@@ -72,13 +71,13 @@
                         <h3>{{ $task->title }}</h3>
                         <hr>
                         <p class="task_description">
-                            {{ $task->description }}
+                            {{ str_limit($task->description,150) }}
                         </p>
                     </div>
                 @endif
             @endforeach
         </article>
-        <article class="col-md-3 col-sm-6 col-xs-12" style="background-color: #49811e; color:white; text-align: center; height: 100vh;">
+        <article class="col-md-3 col-sm-6 col-xs-12" style="background-color: #49811e; color:white; text-align: center; min-height: 100vh;">
             <h2>
                 Done
             </h2>
@@ -92,7 +91,7 @@
                         <h3>{{ $task->title }}</h3>
                         <hr>
                         <p class="task_description">
-                            {{ $task->description }}
+                            {{ str_limit($task->description,150) }}
                         </p>
                     </div>
                 @endif

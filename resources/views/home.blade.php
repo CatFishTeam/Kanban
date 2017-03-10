@@ -11,7 +11,7 @@
                             <h4>Projet :  {{$task->kanban->title}} <span style="float: right;">{{$task->state->title}}</span></h4>
                             <hr>
                             <h3>{{$task->title}}</h3>
-                            <p>{{$task->description}}</p>
+                            <p>{{str_limit($task->description,150)}}</p>
                         </div>
                     </a>
                 @endforeach
