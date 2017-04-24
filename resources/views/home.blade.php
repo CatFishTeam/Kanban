@@ -5,16 +5,19 @@
         <dvi class="row">
             <div class="col-xs-12 col-sm-8">
                 <h2>Tâches en cours</h2>
-                @foreach($tasksInGoing as $task)
+
+                 @foreach($tasksInGoing as $task)
                     <a href="/kanban/{{$task->kanban->id}}">
+
                         <div class="tasksToDo">
-                            <h4>Projet :  {{$task->kanban->title}} <span style="float: right;">{{$task->state->title}}</span></h4>
+                            <h4>Projet :  {{$task->kanban->title}} <span style="float: right;">{{--$task->state->title --}}</span></h4>
                             <hr>
                             <h3>{{$task->title}}</h3>
                             <p>{{str_limit($task->description,150)}}</p>
                         </div>
                     </a>
                 @endforeach
+
             </div>
             <div class="col-xs-12 col-sm-4">
                 <h2>Mes Projets</h2>
